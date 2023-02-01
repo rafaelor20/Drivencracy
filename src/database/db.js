@@ -13,5 +13,5 @@ try {
 
 const db = mongoClient.db()
 
-export const poolCollection = db.collection('poll')
+export const pollCollection = db.collection('poll')
 export const choiceCollection = db.collection('choice')
