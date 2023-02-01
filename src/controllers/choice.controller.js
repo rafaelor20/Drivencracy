@@ -27,3 +27,21 @@ export async function registerChoice(req, res) {
     }
 
 }
+
+export async function getChoices(req, res){
+    const pollId = req.params.id
+    const poll = await pollCollection.findOne({ _id: ObjectId(pollId) })
+    
+    try {
+        if (poll === null) {
+            res.status(404).send("Enquete não existe")
+        } else {
+            const choices = await choiceCollection.find({ pollId: pollId }).toArray()
+            res.status(201).send(choices)
+        }
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).send("Houve um problema no servidor")
+    }
+}
