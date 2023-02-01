@@ -13,8 +13,6 @@ export function pollSchemaValidation(req, res, next) {
         poll.expireAt = req.body.expireAt
     }
 
-    console.log(poll)
-
     const { error } = pollSchema.validate(poll, { abortEarly: false })
 
     if (error) {
