@@ -19,7 +19,6 @@ export async function getResult(req, res) {
     try {
         res.status(201).send(result)
     } catch (error) {
-        console.error(error)
         res.status(500).send("Houve um problema no servidor")
     }
 }
@@ -77,8 +76,6 @@ function mostCommonElement(arr) {
 
 function countWinnerVotes(array, value) {
     let count = 0;
-    console.log(array)
-    console.log(value)
     for (const element of array) {
         if (element.choiceId == value._id.toString()) { count++ }
     }

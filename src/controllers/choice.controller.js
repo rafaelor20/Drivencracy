@@ -9,7 +9,7 @@ export async function registerChoice(req, res) {
     const poll = await pollCollection.findOne({ _id: ObjectId(res.locals.choice.pollId) })
     const isNewChoice = await choiceCollection.findOne({ title: choice.title })
     const now = dayjs()
-
+    
     try {
         if (poll === null) {
             res.status(404).send("Esta enquete não existe")
@@ -38,7 +38,7 @@ export async function getChoices(req, res){
             res.status(404).send("Enquete não existe")
         } else {
             const choices = await choiceCollection.find({ pollId: pollId }).toArray()
-            res.status(201).send(choices)
+            res.status(200).send(choices)
         }
 
     } catch (error) {

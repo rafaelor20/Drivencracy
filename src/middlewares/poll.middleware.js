@@ -16,8 +16,9 @@ export function pollSchemaValidation(req, res, next) {
     const { error } = pollSchema.validate(poll, { abortEarly: false })
 
     if (error) {
+
         const errorMessages = error.details.map(detail => detail.message)
-        return res.status(400).send(errorMessages)
+        return res.status(422).send(errorMessages)
     }
 
     res.locals.poll = poll
