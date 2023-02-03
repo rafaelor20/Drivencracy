@@ -15,3 +15,4 @@ const db = mongoClient.db()
 
 export const pollCollection = db.collection('poll')
 export const choiceCollection = db.collection('choice')
+export const voteCollection = db.collection("vote")
