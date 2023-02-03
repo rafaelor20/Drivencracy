@@ -5,5 +5,5 @@ const joi = coreJoi.extend(joiDate) //as typeof coreJoi;
 
 export const pollSchema = joi.object({
     title: joi.string().required(),
-    expireAt: joi.date().format("YYYY-MM-DD")
+    expireAt: joi.date().format("YYYY-MM-DD HH:mm")
 })

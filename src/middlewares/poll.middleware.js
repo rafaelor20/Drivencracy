@@ -6,7 +6,7 @@ export function pollSchemaValidation(req, res, next) {
 
     if (req.body.expireAt === undefined) {
         poll.title = req.body.title
-        poll.expireAt = dayjs().add(30, 'day').format("YYYY-MM-DD")
+        poll.expireAt = dayjs().add(30, 'day').format("YYYY-MM-DD HH:mm")
 
     } else {
         poll.title = req.body.title
